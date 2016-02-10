@@ -2,27 +2,23 @@
 
 $(document).ready(init);
 
+
+var $page;
+
 function init() {
 
-  var $shuffle = $('.shuffle');
+  var $shuffle = $('#shuffle');
   var $tiles = $('.boxes');
   var tileNums = [1,2,3,4,5,6,7,8,"E"];
 
 
 
-  // function to shuffle the tiles
-  $shuffle.click(function(evt){
-    var newIndex = _.shuffle(tileNums);
+  $page = $('#fakeBody').clone(true);
 
-
-    $tiles.each(function(i){
-      $(this).attr("id", "box" + newIndex[i]);
-    });
-
-    $tiles.click(tileClicked);
-  });
+  $shuffle.click(shuffleTiles);
 
   function tileClicked(evt){
+
     var id = $(this).attr("id");
     if (id === 'boxE') {
       return;
@@ -39,34 +35,57 @@ function init() {
       $(this).attr("id", "boxE");
       checkAnswer();
     } else {
-      alert('NOOOO');
+      $('body').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     }
   }
 
   function checkAnswer(){
 
-   var currentIdStr = '';
-   $tiles.each(function(i){
+    // playerWins();
+    var currentIdStr = '';
+    $tiles.each(function(i){
      var currentID = $(this).attr("id");
      currentIdStr += currentID[3];
    })
 
-   var currentTileNum = tileNums.join('');
+    var currentTileNum = tileNums.join('');
 
-   if (currentIdStr === currentTileNum){
-      alert("You Win!");
+    if (currentIdStr === currentTileNum){
+      playerWins();
+    }
+  }
+  function playerWins(){
+    $('#centerbox').css('z-index', 1);
+    $('#winBox').addClass('animated rotateIn');
+    $('#winBox').html('You Win!');
+    $('#fakeBody').delay(1000).fadeOut(5000);
 
-   } else {
-    console.log('false');
-   }
- }
+    function removePage () {
+      $('#fakeBody').remove();
+    }
+    setTimeout(removePage, 7000);
+
+    function addPage (){
+      $shuffle = $page.find('#shuffle');
+      $tiles = $page.find('.boxes');
+      $('body').addClass('animated slideInLeft').append($page);
+      $shuffle.click(shuffleTiles);
+
+    }
+    setTimeout(addPage, 7000);
+  }
+
+
+  function shuffleTiles(evt){
+    var newIndex = _.shuffle(tileNums);
+
+    $tiles.each(function(i){
+      $(this).attr("id", "box" + newIndex[i]);
+    });
+
+    $tiles.off().click(tileClicked);
+
+  }
+
 }
-
-//count how many moves it takes the person to win?
-
-
-
-
-
-
 
