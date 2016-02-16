@@ -41,7 +41,7 @@ function init() {
 
   function checkAnswer(){
 
-    // playerWins();
+    playerWins();
     var currentIdStr = '';
     $tiles.each(function(i){
      var currentID = $(this).attr("id");
@@ -70,22 +70,27 @@ function init() {
       $tiles = $page.find('.boxes');
       $('body').addClass('animated slideInLeft').append($page);
       $shuffle.click(shuffleTiles);
-
+      setTimeout(removeSlide, 2000);
     }
     setTimeout(addPage, 7000);
-  }
+
+    function removeSlide() {
+      $('body').removeClass('animated slideInLeft');
+    }
+}
 
 
-  function shuffleTiles(evt){
-    var newIndex = _.shuffle(tileNums);
 
-    $tiles.each(function(i){
-      $(this).attr("id", "box" + newIndex[i]);
-    });
+function shuffleTiles(evt){
+  var newIndex = _.shuffle(tileNums);
 
-    $tiles.off().click(tileClicked);
+  $tiles.each(function(i){
+    $(this).attr("id", "box" + newIndex[i]);
+  });
 
-  }
+  $tiles.off().click(tileClicked);
+
+}
 
 }
 
