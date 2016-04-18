@@ -41,7 +41,6 @@ function init() {
 
   function checkAnswer(){
 
-    
     var currentIdStr = '';
     $tiles.each(function(i){
      var currentID = $(this).attr("id");
@@ -63,7 +62,7 @@ function init() {
     function removePage () {
       $('#fakeBody').remove();
     }
-    setTimeout(removePage, 7000);
+    setTimeout(removePage, 6000);
 
     function addPage (){
       $shuffle = $page.find('#shuffle');
@@ -72,7 +71,7 @@ function init() {
       $shuffle.click(shuffleTiles);
       setTimeout(removeSlide, 2000);
     }
-    setTimeout(addPage, 7000);
+    setTimeout(addPage, 6000);
 
     function removeSlide() {
       $('body').removeClass('animated slideInLeft');
