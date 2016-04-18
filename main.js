@@ -7,7 +7,7 @@ var $page;
 
 function init() {
 
-  var $shuffle = $('#shuffle');
+  var $shuffle = $('.shuffle');
   var $tiles = $('.boxes');
   var tileNums = [1,2,3,4,5,6,7,8,"E"];
 
@@ -41,6 +41,7 @@ function init() {
 
   function checkAnswer(){
 
+    // playerWins();
     var currentIdStr = '';
     $tiles.each(function(i){
      var currentID = $(this).attr("id");
@@ -62,34 +63,28 @@ function init() {
     function removePage () {
       $('#fakeBody').remove();
     }
-    setTimeout(removePage, 6000);
+    setTimeout(removePage, 7000);
 
     function addPage (){
       $shuffle = $page.find('#shuffle');
       $tiles = $page.find('.boxes');
       $('body').addClass('animated slideInLeft').append($page);
       $shuffle.click(shuffleTiles);
-      setTimeout(removeSlide, 2000);
+
     }
-    setTimeout(addPage, 6000);
-
-    function removeSlide() {
-      $('body').removeClass('animated slideInLeft');
-    }
-}
+    setTimeout(addPage, 7000);
+  }
 
 
+  function shuffleTiles(evt){
+    var newIndex = _.shuffle(tileNums);
 
-function shuffleTiles(evt){
-  var newIndex = _.shuffle(tileNums);
+    $tiles.each(function(i){
+      $(this).attr("id", "box" + newIndex[i]);
+    });
 
-  $tiles.each(function(i){
-    $(this).attr("id", "box" + newIndex[i]);
-  });
+    $tiles.off().click(tileClicked);
 
-  $tiles.off().click(tileClicked);
+  }
 
 }
-
-}
-
