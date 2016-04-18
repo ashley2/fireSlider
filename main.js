@@ -62,7 +62,7 @@ function init() {
     function removePage () {
       $('#fakeBody').remove();
     }
-    setTimeout(removePage, 7000);
+    setTimeout(removePage, 6000);
 
     function addPage (){
       $shuffle = $page.find('#shuffle');
