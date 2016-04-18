@@ -4,53 +4,46 @@
   <meta charset="UTF-8">
   <title>Sliding Tiles</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
-  <div id="fakeBody">
+  <div class="titleBox">Fire Slider</div>
+  <div class="directions">Reorder the numbers 1 - 9. Click the shuffle button to get started!</div>
+  <br>
+  <br>
 
-    <div class="titleBox">Fire Slider</div>
-    <div class="directions">Reorder the numbers 1 - 9. Click the shuffle button to get started!</div>
-    <br>
-    <br>
+  <div class="game" align="center">
 
-    <div class="game" align="center">
-
-      <div class="gameBox">
-        <div class="boxes" data-pos="[0,0]"id="box1"></div>
-        <div class="boxes" data-pos="[0,1]"id="box2"></div>
-        <div class="boxes" data-pos="[0,2]"id="box3"></div>
+    <div class="gameBox">
+      <div class="boxes" data-pos="[0,0]"id="box1"></div>
+      <div class="boxes" data-pos="[0,1]"id="box2"></div>
+      <div class="boxes" data-pos="[0,2]"id="box3"></div>
 
 
-        <div class="boxes" data-pos="[1,0]"id="box4"></div>
-        <div class="boxes" data-pos="[1,1]"id="box5"></div>
-        <div class="boxes" data-pos="[1,2]"id="box6"></div>
+      <div class="boxes" data-pos="[1,0]"id="box4"></div>
+      <div class="boxes" data-pos="[1,1]"id="box5"></div>
+      <div class="boxes" data-pos="[1,2]"id="box6"></div>
 
 
-        <div class="boxes" data-pos="[2,0]"id="box7"></div>
-        <div class="boxes" data-pos="[2,1]"id="box8"></div>
-        <div class="boxes" data-pos="[2,2]"id="boxE"></div>
-      </div>
-
-
-      <br>
-
-      <button id="shuffle">Shuffle</button>
+      <div class="boxes" data-pos="[2,0]"id="box7"></div>
+      <div class="boxes" data-pos="[2,1]"id="box8"></div>
+      <div class="boxes" data-pos="[2,2]"id="boxE"></div>
     </div>
 
 
-    <div id="centerbox" align="center">
-      <div id="winBox" align="center">
-      </div>
-    </div>
+    <br>
+
+    <button class="shuffle">Shuffle</button>
   </div>
+
+  <!-- <div id="winBox">You Win!</div> -->
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.2.1/lodash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="main.js"></script>
 
 </body>
