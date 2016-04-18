@@ -41,7 +41,7 @@ function init() {
 
   function checkAnswer(){
 
-    playerWins();
+    
     var currentIdStr = '';
     $tiles.each(function(i){
      var currentID = $(this).attr("id");
