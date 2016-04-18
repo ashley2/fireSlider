@@ -1,8 +1,4 @@
 
-.game{
-
-}
-
 .gameBox {
   height: 466px;
   width: 466px;
@@ -110,6 +106,27 @@
   font-size: 20px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+}
+
+
+#centerbox {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 32%;
+  left: calc(50% - 411px);
+  z-index: -2;
+  display: table;
+  div {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 200px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    background-color: rgba(255, 153, 0,.3);
+    border-radius: 15px;
+    position: absolute;
+  }
 }
 
 
